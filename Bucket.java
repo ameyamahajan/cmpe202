@@ -15,7 +15,7 @@ public class Bucket extends Actor
     private float egg;
     boolean isDown = false;
     private static Bucket bucket;
-    private Bucket()
+    Bucket()
     {
         GreenfootImage image = getImage() ;
         image.scale( 125, 125 ) ; 
@@ -28,7 +28,7 @@ public class Bucket extends Actor
         return bucket;
     }
     
-    public void check() 
+    public void act() 
     {
         isKeyDown();
         printMsg();
@@ -42,17 +42,17 @@ public class Bucket extends Actor
         {
            //isDown = true;
            //setRotation(360);
-           move(-150);
+           move(-100);
            setSpeed(100);
         }
         if ( !isDown && Greenfoot.isKeyDown("right") )
         {
             //isDown = true;
             //setRotation(180);
-            move(150);
+            move(100);
             setSpeed(100);
         }
-        if ( !isDown && Greenfoot.isKeyDown("up") )
+       if( !isDown && Greenfoot.isKeyDown("up") )
         {
             //isDown = true;
             //setRotation(90);
@@ -66,6 +66,7 @@ public class Bucket extends Actor
             move(-300);
              setSpeed(1000);
         }
+        
         if ( isDown &&! Greenfoot.isKeyDown("left") &&! Greenfoot.isKeyDown("right") &&
         ! Greenfoot.isKeyDown("up") &&! Greenfoot.isKeyDown("down"))
         {
@@ -117,6 +118,6 @@ public class Bucket extends Actor
     
     public void setSpeed(int speed)
     {
-       System.out.println("The speed is:"+speed);
+      // System.out.println("The speed is:"+speed);
     }
 }

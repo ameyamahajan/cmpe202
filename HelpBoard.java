@@ -1,21 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.Color;
-import java.util.List;
+
 /**
- * Write a description of class HelpBoard here.
+ * Write a description of class HelpBoard1 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HelpBoard extends Actor
+public class HelpBoard extends World
 {
-   
 
-    // The vertical gap between user images in the scoreboard:
-    public void act()
+    /**
+     * Constructor for objects of class HelpBoard1.
+     * 
+     */
+    public HelpBoard()
+    {    
+        super(800, 600, 1); 
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
     {
         
+        Return xreturn = new Return();
+        addObject(xreturn, 654, 553);
     }
 }
-
 

@@ -24,7 +24,7 @@ public class Help extends Button
         Menu menu = (Menu) getWorld();
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new HelpBoard1());
+            Greenfoot.setWorld(new HelpBoard());
            //men.getMusic().stop();
         }
     }

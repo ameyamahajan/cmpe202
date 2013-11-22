@@ -31,12 +31,14 @@ public class Hen extends Actor
     {
         int pick= new Random().nextInt(5);
         int eggChoice = new Random().nextInt(3)+1;
+        System.out.println("Hen pick "+pick+" egg Choice "+eggChoice);
         scroller=150;
         egg = createEgg(eggChoice,HenLocation[pick]);
-        while(true){
+        while(scroller < 500){
+            System.out.println("I got here!!" + scroller);
             moveEgg(HenLocation[pick],scroller);
             touch();
-            scroller=+1;
+            scroller=scroller+1;
         }
     }
     
@@ -66,8 +68,7 @@ public class Hen extends Actor
         
         
     public void touch(){
-        Bucket.getInstance().check();
-        
+        Bucket.getInstance().act();   
     }
 }
 

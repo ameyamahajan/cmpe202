@@ -15,18 +15,14 @@ public class Begin extends Button
      
     public void act() 
     {
-        jugar1();
+        begin();
     }
     
-    /**Metodo para poder acceder al juego*/
-    public void jugar1()
+    public void begin()
     {
-        Background bg= (Background) getWorld();
-        //Menu menu = (Menu) getWorld();
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Menu());
-           //men.getMusic().stop();
         }
     }
 }

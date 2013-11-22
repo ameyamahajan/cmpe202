@@ -21,7 +21,7 @@ public class Return extends Button
     
     public void regresa2()
     {
-        HelpBoard1 hb1= (HelpBoard1) getWorld();
+        HelpBoard hb1= (HelpBoard) getWorld();
         //Menu menu = (Menu) getWorld();
         if(Greenfoot.mouseClicked(this))
         {

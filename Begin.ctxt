@@ -3,6 +3,5 @@ comment0.params=
 comment0.target=void\ act()
 comment0.text=\n\ Act\ -\ do\ whatever\ the\ Begin\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment1.params=
-comment1.target=void\ jugar1()
-comment1.text=Metodo\ para\ poder\ acceder\ al\ juego
+comment1.target=void\ begin()
 numComments=2

@@ -20,7 +20,6 @@ public class BorderLine extends Actor
     public void eggRemove()
     {
         Actor egg =  getOneIntersectingObject(Egg.class);
-       // getOneIntersectingObject(Egg.class);
         if (egg != null){
             System.out.println(egg.getClass());
             if (egg instanceof Egg )
@@ -32,15 +31,5 @@ public class BorderLine extends Actor
             }
         }
     }
-    /*public void process()
-    {
-        b =  isTouching(GoldenEgg.class);
-        c = isTouching(SpoiledEgg.class);
-        a =  isTouching(WhiteEgg.class);
-        if(a==true)
-        {
-            GreenfootImage image = whiteegg.getImage();
-            image.clear();
-        }
-    }*/
+
 }
