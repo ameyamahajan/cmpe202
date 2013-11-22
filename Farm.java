@@ -43,8 +43,8 @@ public class Farm extends World
         addObject(hen5, 526, 37);
     
         hen4.setLocation(792, 60);
-        hen3.setLocation(565, 62);
-        hen2.setLocation(332, 59);
+        hen3.setLocation(565, 60);
+        hen2.setLocation(332, 60);
         hen1.setLocation(115, 60);
         hen5.setLocation(1006, 60);
     

@@ -42,29 +42,29 @@ public class Bucket extends Actor
         {
            //isDown = true;
            //setRotation(360);
-           move(-100);
+           move(-4);
            setSpeed(100);
         }
         if ( !isDown && Greenfoot.isKeyDown("right") )
         {
             //isDown = true;
             //setRotation(180);
-            move(100);
+            move(4);
             setSpeed(100);
         }
        if( !isDown && Greenfoot.isKeyDown("up") )
         {
             //isDown = true;
             //setRotation(90);
-            move(300);
-            setSpeed(1000);
+            move(8);
+            setSpeed(500);
         }
         if ( !isDown && Greenfoot.isKeyDown("down") )
         {
             //isDown = true;
             //setRotation(-90);
-            move(-300);
-             setSpeed(1000);
+            move(-8);
+             setSpeed(500);
         }
         
         if ( isDown &&! Greenfoot.isKeyDown("left") &&! Greenfoot.isKeyDown("right") &&

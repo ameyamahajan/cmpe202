@@ -1,2 +1,6 @@
 #BlueJ class context
-numComments=0
+comment0.params=button
+comment0.target=void\ setSuccessor(Button)
+comment1.params=
+comment1.target=void\ actionHandler()
+numComments=2

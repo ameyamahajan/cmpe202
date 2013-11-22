@@ -8,18 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Return extends Button
 {
-    /**
-     * Act - do whatever the Return wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   
     
      public void act() 
     {
-         regresa2();
+         begin();
     }
     
+    public void setSuccessor(Button button){
     
-    public void regresa2()
+    }
+    
+    public void actionHandler(){
+    
+    }
+    
+    public void begin()
     {
         HelpBoard hb1= (HelpBoard) getWorld();
         //Menu menu = (Menu) getWorld();

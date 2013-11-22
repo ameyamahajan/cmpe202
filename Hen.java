@@ -35,7 +35,6 @@ public class Hen extends Actor
         scroller=150;
         egg = createEgg(eggChoice,HenLocation[pick]);
         while(scroller < 500){
-            System.out.println("I got here!!" + scroller);
             moveEgg(HenLocation[pick],scroller);
             touch();
             scroller=scroller+1;

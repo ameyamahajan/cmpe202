@@ -8,15 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Begin extends Button
 {
-    /**
-     * Act - do whatever the Begin wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-     
+    
     public void act() 
     {
         begin();
     }
+    
+    public void setSuccessor(Button button){
+    
+    }
+    
+    public void actionHandler(){
+    
+   }
     
     public void begin()
     {
