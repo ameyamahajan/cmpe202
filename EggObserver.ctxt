@@ -1,2 +1,4 @@
 #BlueJ class context
-numComments=0
+comment0.params=farm\ count
+comment0.target=void\ update(greenfoot.World,\ int)
+numComments=1

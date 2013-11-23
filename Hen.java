@@ -33,7 +33,7 @@ public class Hen extends Actor
     public void chooseHen()
     {
         int pick= new Random().nextInt(5);
-        int eggChoice = new Random().nextInt(3)+1;
+        int eggChoice = new Random().nextInt(9)+1;
         scroller=150;
         egg = createEgg(eggChoice,HenLocation[pick]);
         while(scroller < 700){
@@ -52,12 +52,14 @@ public class Hen extends Actor
         world = getWorld();
         Egg tempEgg ;
         switch(eggType){
-            case 1:
+            case 1: case 2: case 3: case 4: case 5: 
             tempEgg=new WhiteEgg();break;
-            case 2:
-            tempEgg=new GoldenEgg();break;
-            default:
+            case 6: case 7: case 8: 
             tempEgg=new SpoiledEgg();break;
+            case 9:
+            tempEgg=new GoldenEgg();break;
+            default: 
+            tempEgg=new WhiteEgg();break;
         }
         world.addObject(tempEgg,henSelect,150);
         return tempEgg;

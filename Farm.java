@@ -74,6 +74,5 @@ public class Farm extends World
         addObject(new Timer(), 518, 567);
         addObject(new Score(0), 750, 567);
 
-        
     }
 }

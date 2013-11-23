@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bucket extends Actor
+public class Bucket extends StatusSubject
 {
     /**
      * Act - do whatever the Bucket wants to do. This method is called whenever
@@ -15,11 +15,12 @@ public class Bucket extends Actor
     private float eggCount;
     boolean isDown = false;
     private static Bucket bucket;
+    private int bonus=0;
+    private static float score=0.0f;
     Bucket()
     {
         GreenfootImage image = getImage() ;
         image.scale( 125, 125 ) ; 
-        
     }
     
     public static Bucket getInstance(){
@@ -33,36 +34,28 @@ public class Bucket extends Actor
         isKeyDown();
     } 
     
+    
+   
+    
    public void isKeyDown()
     {
        
         if(Greenfoot.isKeyDown("left"))
         {
-           //isDown = true;
-           //setRotation(360);
            move(-4);
-           setSpeed(100);
         }
         if ( !isDown && Greenfoot.isKeyDown("right") )
         {
-            //isDown = true;
-            //setRotation(180);
             move(4);
-            setSpeed(100);
         }
-        if( !isDown && Greenfoot.isKeyDown("up") )
+        if( !isDown && Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("right"))
         {
-            //isDown = true;
-            //setRotation(90);
             move(8);
-            setSpeed(500);
+           
         }
-        if ( !isDown && Greenfoot.isKeyDown("down") )
+        if ( !isDown && Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left"))
         {
-            //isDown = true;
-            //setRotation(-90);
             move(-8);
-             setSpeed(500);
         }
         
         if ( isDown &&! Greenfoot.isKeyDown("left") &&! Greenfoot.isKeyDown("right") &&
@@ -74,6 +67,7 @@ public class Bucket extends Actor
        
    public float keepStatus(float score)
    {
+       this.score=score;
        Actor egg;
         egg = getOneIntersectingObject(Actor.class);
         if (egg !=  null && egg instanceof Egg )
@@ -82,7 +76,7 @@ public class Bucket extends Actor
            world = getWorld();
            
            if (egg instanceof WhiteEgg){
-               score=5.0f + score;
+               score=50.0f + score;
            }
            else if(egg instanceof GoldenEgg) {
               score=20.0f + score;
@@ -95,11 +89,18 @@ public class Bucket extends Actor
            }
            world.removeObject(egg);
        }  
+       if (Math.round(score) > 50 && Math.round(score)  > bonus){
+           bonus=Math.round(score/50);
+       }
+       else bonus=1;
+       
+       notifyObserver();
        return score;
    } 
     
-    public void setSpeed(int speed)
-    {
-      // System.out.println("The speed is:"+speed);
-    }
+   public void notifyObserver(){
+    eggObserver[0].update(getWorld(),bonus);
+    eggObserver[1].update(getWorld(),Math.round(this.score));
+   }
+    
 }

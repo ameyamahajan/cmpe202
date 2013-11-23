@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=farm\ count
+comment0.target=void\ update(greenfoot.World,\ int)
+comment1.params=farm
+comment1.target=void\ addLife(greenfoot.World)
+comment2.params=farm
+comment2.target=void\ removeLife(greenfoot.World)
+numComments=3

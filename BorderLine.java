@@ -1,18 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
-/**
- * Write a description of class BorderLine here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class BorderLine extends Actor
+
+
+public class BorderLine extends StatusSubject
 {
-    /**
-     * Act - do whatever the BorderLine wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+  
     private float eggCount;
     private static BorderLine border;
     
@@ -44,9 +36,7 @@ public class BorderLine extends Actor
                 else if (egg instanceof GoldenEgg){
                       
                 }    
-                    
                 world.removeObject(egg);
-            
         }
         return score;
     }
@@ -54,15 +44,17 @@ public class BorderLine extends Actor
     public void killLife() { 
        
         if (getWorld().getObjects(Player.class).size() > 0) 
-        { 
-           getWorld().removeObject((Actor)getWorld().getObjects(Player.class).get(0));
-           getWorld().repaint();
-           System.out.println("Lost White Egg" + getWorld().getObjects(Player.class).size());
+        {
+           notifyObserver();
         } 
         else{
             Greenfoot.setWorld(new GameOver()); 
             System.out.println("Game Over");
         }
             
-    } 
+    }
+    
+    public void notifyObserver(){
+        eggObserver[0].update(getWorld(),0);
+    }
 }

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=observer
+comment0.target=void\ register(EggObserver)
+comment1.params=observer
+comment1.target=void\ unregister(EggObserver)
+comment2.params=
+comment2.target=void\ notifyObserver()
+numComments=3

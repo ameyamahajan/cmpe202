@@ -7,4 +7,6 @@ comment2.params=score
 comment2.target=float\ keepStatus(float)
 comment3.params=
 comment3.target=void\ killLife()
-numComments=4
+comment4.params=
+comment4.target=void\ notifyObserver()
+numComments=5

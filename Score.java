@@ -6,20 +6,26 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Score extends Actor
+public class Score extends EggObserver
 {
     /**
      * Act - do whatever the Score wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     Score(){
+    
+    
+    Score(){
         GreenfootImage score = getImage();
         score.scale(125,40);
     }
     
-    public Score(int score){
+    public Score(float count){
      this();
-     getImage().drawImage((new GreenfootImage(score+" points",30,Color.WHITE,Color.BLACK)),0,0);
+   //  getImage().drawImage((new GreenfootImage(Math.round(count)+" ",30,Color.WHITE,Color.BLACK)),0,0);
 
+    }
+    
+     public void update(World farm, int count){
+         getImage().drawImage((new GreenfootImage(count+" ",30,Color.WHITE,Color.BLACK)),0,0);
     }
 }
