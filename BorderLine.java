@@ -13,18 +13,28 @@ public class BorderLine extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-     private float egg;
-     boolean a,b,c;
+    private float eggCount;
+    private static BorderLine border;
     
+    private BorderLine(){
+        GreenfootImage image = getImage();
+        image.scale(1100,30);
+        eggCount=0;
+    }
     
+    public static BorderLine getInstance(){
+        if (border == null){
+            border=new BorderLine();
+        }
+        return border;
+    }
+     
+     
     public void eggRemove()
     {
         Actor egg =  getOneIntersectingObject(Egg.class);
-        if (egg != null){
-            System.out.println(egg.getClass());
-            if (egg instanceof Egg )
+        if (egg != null && egg instanceof Egg){
             {
-                System.out.println("Egg touched Me \n\n\n\n!");
                 World world;
                 world = getWorld();
                 world.removeObject(egg);

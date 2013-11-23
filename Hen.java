@@ -31,10 +31,9 @@ public class Hen extends Actor
     {
         int pick= new Random().nextInt(5);
         int eggChoice = new Random().nextInt(3)+1;
-        System.out.println("Hen pick "+pick+" egg Choice "+eggChoice);
         scroller=150;
         egg = createEgg(eggChoice,HenLocation[pick]);
-        while(scroller < 500){
+        while(scroller < 700){
             moveEgg(HenLocation[pick],scroller);
             touch();
             scroller=scroller+1;
@@ -43,7 +42,7 @@ public class Hen extends Actor
     
 
     public Egg createEgg(int eggType, int henSelect)
-    { 
+    { // Strategy pattern is implemented here
         World world;
         world = getWorld();
         Egg tempEgg ;
@@ -55,7 +54,6 @@ public class Hen extends Actor
             default:
             tempEgg=new SpoiledEgg();break;
         }
-        System.out.println(henSelect);
         world.addObject(tempEgg,henSelect,150);
         return tempEgg;
     }
@@ -68,6 +66,7 @@ public class Hen extends Actor
         
     public void touch(){
         Bucket.getInstance().act();   
+        BorderLine.getInstance().eggRemove();
     }
 }
 

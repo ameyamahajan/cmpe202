@@ -16,7 +16,7 @@ public class Farm extends World
     public Farm()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
+        super(1100, 600, 1); 
 
         prepare();
     }
@@ -41,28 +41,28 @@ public class Farm extends World
         hen4.setLocation(391, 41);
         Hen hen5 = new Hen();
         addObject(hen5, 526, 37);
-    
+
         hen4.setLocation(792, 60);
         hen3.setLocation(565, 60);
         hen2.setLocation(332, 60);
         hen1.setLocation(115, 60);
         hen5.setLocation(1006, 60);
-    
 
-        BorderLine borderline = new BorderLine();
-        addObject(borderline, 532, 596);
-        borderline.setLocation(535, 577);
-        
+        BorderLine borderline = BorderLine.getInstance();
+        addObject(borderline, 1110,30);
+        borderline.setLocation(30, 710);
+
         Player player = new Player();
         addObject(player, 832, 395);
         player.setLocation(25, 579);
-     
+
         Quit quit = new Quit();
         addObject(quit, 1038, 589);
         quit.setLocation(1034, 582);
-        
-        addObject(Bucket.getInstance(), 450, 403);
-          
 
+        addObject(Bucket.getInstance(), 450, 403);
+
+        borderline.setLocation(540, 708);
+        borderline.setLocation(548, 531);
     }
 }
