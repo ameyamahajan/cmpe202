@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Timer()
+comment1.params=ticker
+comment1.target=void\ timer30(long)
+numComments=2

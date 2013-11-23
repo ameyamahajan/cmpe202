@@ -64,5 +64,8 @@ public class Farm extends World
 
         borderline.setLocation(540, 708);
         borderline.setLocation(548, 531);
+
+        addObject(new Timer(), 518, 567);
+        
     }
 }

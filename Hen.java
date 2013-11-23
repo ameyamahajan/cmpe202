@@ -18,6 +18,8 @@ public class Hen extends Actor
     final int[] HenLocation = {115,332,565,792,1006};
     int scroller;
     private static final double speed = 5.0;
+    private long ticker=System.currentTimeMillis();
+    
     public Hen()
     {
         GreenfootImage image = getImage() ;
@@ -26,6 +28,7 @@ public class Hen extends Actor
     public void act() 
     {
         chooseHen();
+        timer30();
     }
     public void chooseHen()
     {
@@ -67,6 +70,13 @@ public class Hen extends Actor
     public void touch(){
         Bucket.getInstance().act();   
         BorderLine.getInstance().eggRemove();
+    }
+    
+    
+    public void timer30(){
+       if( getWorld().getObjects(Timer.class).size() > 0 )
+            ((Timer)getWorld().getObjects(Timer.class).get(0)).timer30(ticker);
+       
     }
 }
 
