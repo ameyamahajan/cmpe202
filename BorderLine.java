@@ -30,16 +30,39 @@ public class BorderLine extends Actor
     }
      
      
-    public void eggRemove()
+    public float keepStatus(float score)
     {
         Actor egg =  getOneIntersectingObject(Egg.class);
         if (egg != null && egg instanceof Egg){
-            {
                 World world;
                 world = getWorld();
+                
+                if (egg instanceof WhiteEgg){
+                    
+                    killLife();
+                }
+                else if (egg instanceof GoldenEgg){
+                      
+                }    
+                    
                 world.removeObject(egg);
-            }
+            
         }
+        return score;
     }
-
+   
+    public void killLife() { 
+       
+        if (getWorld().getObjects(Player.class).size() > 0) 
+        { 
+           getWorld().removeObject((Actor)getWorld().getObjects(Player.class).get(0));
+           getWorld().repaint();
+           System.out.println("Lost White Egg" + getWorld().getObjects(Player.class).size());
+        } 
+        else{
+            Greenfoot.setWorld(new GameOver()); 
+            System.out.println("Game Over");
+        }
+            
+    } 
 }

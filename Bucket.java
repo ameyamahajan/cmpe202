@@ -28,12 +28,9 @@ public class Bucket extends Actor
         return bucket;
     }
     
-    public float checkTouch() 
+    public void act()
     {
         isKeyDown();
-        keepScore();
-        return eggCount;
-        
     } 
     
    public void isKeyDown()
@@ -75,7 +72,7 @@ public class Bucket extends Actor
         }
     }
        
-   public void keepScore()
+   public float keepStatus(float score)
    {
        Actor egg;
         egg = getOneIntersectingObject(Actor.class);
@@ -83,21 +80,22 @@ public class Bucket extends Actor
         {
            World world;
            world = getWorld();
-           world.removeObject(egg);
+           
            if (egg instanceof WhiteEgg){
-               this.eggCount=5.0f + this.eggCount;
+               score=5.0f + score;
            }
            else if(egg instanceof GoldenEgg) {
-               this.eggCount=10.0f + this.eggCount;
+              score=20.0f + score;
            }
            else if(egg instanceof SpoiledEgg) {
-                   this.eggCount=-20.0f+ this.eggCount;
+              score=-5.0f+ score;
            }
            else {
-               this.eggCount=0.0f+this.eggCount;
+               score=0.0f+score;
            }
-        //  System.out.println("Your Score is -> "+this.eggCount);
+           world.removeObject(egg);
        }  
+       return score;
    } 
     
     public void setSpeed(int speed)

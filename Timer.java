@@ -18,9 +18,13 @@ public class Timer extends Actor
         if ((System.currentTimeMillis()-ticker)<30000){
          //   getImage().drawImage((new GreenfootImage(((System.currentTimeMillis()-ticker)/1000)+" sec",30,Color.WHITE,Color.BLACK)),0,0);
             getImage().drawImage((new GreenfootImage(((System.currentTimeMillis()-ticker)/1000)+" sec",30,Color.WHITE,Color.BLACK)),0,0);
+             getImage().drawImage((new GreenfootImage(" points",30,Color.WHITE,Color.BLACK)),0,0);
         }
         else {
             getImage().drawImage((new GreenfootImage("30 sec",30,Color.WHITE,Color.BLACK)),0,0);
+            Greenfoot.delay(10);
+            Greenfoot.setWorld(new GameOver());
+        
         }
        // System.out.println("Done Done Done!!!");
     }

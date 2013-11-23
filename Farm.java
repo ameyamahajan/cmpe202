@@ -52,9 +52,15 @@ public class Farm extends World
         addObject(borderline, 1110,30);
         borderline.setLocation(30, 710);
 
-        Player player = new Player();
-        addObject(player, 832, 395);
-        player.setLocation(25, 579);
+        Player player1 = new Player();
+        addObject(player1, 832, 395);
+        player1.setLocation(25, 579);
+        Player player2 = new Player();
+        addObject(player2, 417, 578);
+        player2.setLocation(75, 578);
+        Player player3 = new Player();
+        addObject(player3, 369, 525);
+        player3.setLocation(125, 577);
 
         Quit quit = new Quit();
         addObject(quit, 1038, 589);
@@ -66,6 +72,8 @@ public class Farm extends World
         borderline.setLocation(548, 531);
 
         addObject(new Timer(), 518, 567);
+        addObject(new Score(0), 750, 567);
+
         
     }
 }

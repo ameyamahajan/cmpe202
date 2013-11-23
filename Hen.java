@@ -17,7 +17,7 @@ public class Hen extends Actor
     Egg egg ;
     final int[] HenLocation = {115,332,565,792,1006};
     int scroller;
-    private static final double speed = 5.0;
+    float score = 0.0f;
     private long ticker=System.currentTimeMillis();
     
     public Hen()
@@ -70,8 +70,9 @@ public class Hen extends Actor
         
         
     public void touch(){
-        Bucket.getInstance().checkTouch();   
-        BorderLine.getInstance().eggRemove();
+        Bucket.getInstance().act();
+        this.score=Bucket.getInstance().keepStatus(this.score);
+        this.score=BorderLine.getInstance().keepStatus(this.score);
     }
     
     
@@ -79,11 +80,7 @@ public class Hen extends Actor
        if( getWorld().getObjects(Timer.class).size() > 0 )
        {
             ((Timer)getWorld().getObjects(Timer.class).get(0)).timer30(ticker);
-        }
-        else {
-             Greenfoot.setWorld(new GameOver(100));
-        }
-       
+       }
     }
     
    
