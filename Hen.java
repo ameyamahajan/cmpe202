@@ -38,8 +38,10 @@ public class Hen extends Actor
         egg = createEgg(eggChoice,HenLocation[pick]);
         while(scroller < 700){
             moveEgg(HenLocation[pick],scroller);
+            timer30();
             touch();
             scroller=scroller+1;
+            timer30();
         }
     }
     
@@ -63,21 +65,28 @@ public class Hen extends Actor
     
     public void moveEgg(int xloc, int yloc){
             egg.setLocation(xloc,yloc);
-            Greenfoot.delay(500);
+            Greenfoot.delay(50);
         }
         
         
     public void touch(){
-        Bucket.getInstance().act();   
+        Bucket.getInstance().checkTouch();   
         BorderLine.getInstance().eggRemove();
     }
     
     
     public void timer30(){
        if( getWorld().getObjects(Timer.class).size() > 0 )
+       {
             ((Timer)getWorld().getObjects(Timer.class).get(0)).timer30(ticker);
+        }
+        else {
+             Greenfoot.setWorld(new GameOver(100));
+        }
        
     }
+    
+   
 }
 
 

@@ -24,7 +24,7 @@ public class Quit extends Button
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Menu());
-           //men.getMusic().stop();
+           // menu.getMusic().stop();
         }
     }
     

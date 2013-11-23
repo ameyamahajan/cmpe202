@@ -28,10 +28,11 @@ public class Bucket extends Actor
         return bucket;
     }
     
-    public void act() 
+    public float checkTouch() 
     {
         isKeyDown();
         keepScore();
+        return eggCount;
         
     } 
     
@@ -95,7 +96,7 @@ public class Bucket extends Actor
            else {
                this.eggCount=0.0f+this.eggCount;
            }
-          System.out.println("Your Score is -> "+this.eggCount);
+        //  System.out.println("Your Score is -> "+this.eggCount);
        }  
    } 
     
