@@ -2,6 +2,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Life extends EggObserver
 {
+    private static Life life; 
+    
+    public static Life getInstance(){
+        if (life == null)
+            life = new Life();
+        return life;
+    }
     
     public void update(World farm, int count){
       //  if ((getWorld().getObjects(Player.class).size() - Math.floor(count)) > 0){

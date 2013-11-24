@@ -69,14 +69,23 @@ public class Hen extends Actor
     
     public void moveEgg(int xloc, int yloc){
             egg.setLocation(xloc,yloc);
-            Greenfoot.delay(50);
+            Greenfoot.delay(85);
         }
         
         
     public void touch(){
+        
+        Bucket.getInstance().register(0,((Score)getWorld().getObjects(Score.class).get(0)));
+        Bucket.getInstance().register(1,Life.getInstance());
+        BorderLine.getInstance().register(0,Life.getInstance());
+        
         Bucket.getInstance().act();
-        this.score=Bucket.getInstance().keepStatus(this.score);
-        this.score=BorderLine.getInstance().keepStatus(this.score);
+        int scorel=this.score;
+        scorel=Bucket.getInstance().keepStatus(this.score);
+        System.out.println("Score after catch "+scorel);
+        BorderLine.getInstance().keepStatus(this.score);
+       // ((Score)getWorld().getObjects(Score.class).get(0)).update(getWorld(),scorel);
+        this.score=scorel;
     }
     
     
@@ -86,8 +95,6 @@ public class Hen extends Actor
             ((Timer)getWorld().getObjects(Timer.class).get(0)).timer30(ticker);
        }
     }
-    
-   
 }
 
 

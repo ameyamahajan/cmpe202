@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class GoldenEgg extends WhiteEgg
 {
-    private final int gscore=20;
+    private final int gscore=40;
     
      public GoldenEgg()
     {

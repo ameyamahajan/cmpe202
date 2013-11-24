@@ -25,7 +25,7 @@ public class GameOver extends World
     }
     
     public void prepare(){
-        Score score=new Score(this.score);
-        addObject(score, 250, 250);
+      //  Score score=new Score(this.score);
+      //  addObject(score, 250, 250);
     }
 }

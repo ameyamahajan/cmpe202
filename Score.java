@@ -20,14 +20,13 @@ public class Score extends EggObserver
     }
     
     public Score(int count){
-     this();
-     getImage().drawImage((new GreenfootImage(count+" ",30,Color.WHITE,Color.BLACK)),30,5);
+     //   this();
+        getImage().drawImage((new GreenfootImage(count+" ",30,Color.WHITE,Color.BLACK)),30,5);
 
     }
     
-     public void update(World farm, int count){
-       
-       getImage().drawImage((new GreenfootImage(count+" ",30,Color.WHITE,Color.BLACK)),30,5);
-       farm.repaint();
+    public void update(World farm, int count){
+        getImage().drawImage((new GreenfootImage(" "+count+" ",30,Color.WHITE,Color.BLACK)),30,5);
     }
+    
 }

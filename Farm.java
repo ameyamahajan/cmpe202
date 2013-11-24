@@ -72,7 +72,7 @@ public class Farm extends World
         borderline.setLocation(548, 531);
 
         addObject(new Timer(), 518, 567);
-        addObject(new Score(0), 750, 567);
+        addObject(new Score(), 750, 567);
 
     }
 }
