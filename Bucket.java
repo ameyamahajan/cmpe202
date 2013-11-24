@@ -16,7 +16,7 @@ public class Bucket extends StatusSubject
     boolean isDown = false;
     private static Bucket bucket;
     private int bonus=0;
-    private static float score=0.0f;
+    private static float tscore=0.0f;
     Bucket()
     {
         GreenfootImage image = getImage() ;
@@ -67,40 +67,46 @@ public class Bucket extends StatusSubject
        
    public float keepStatus(float score)
    {
-       this.score=score;
        Actor egg;
         egg = getOneIntersectingObject(Actor.class);
         if (egg !=  null && egg instanceof Egg )
         {
            World world;
            world = getWorld();
-           
            if (egg instanceof WhiteEgg){
-               score=50.0f + score;
+                score=10.0f + score;
+                System.out.println("White egg in Bucket --> "+ score);
            }
            else if(egg instanceof GoldenEgg) {
-              score=20.0f + score;
+                score=50.0f + score;
+                System.out.println("Golden egg in Bucket --> "+ score);
            }
-           else if(egg instanceof SpoiledEgg) {
-              score=-5.0f+ score;
-           }
-           else {
-               score=0.0f+score;
+           else if(egg instanceof SpoiledEgg){
+               score=-5.0f+ score;
+               System.out.println(" Spoiled egg in Bucket --> "+ score);
            }
            world.removeObject(egg);
        }  
-       if (Math.round(score) > 50 && Math.round(score)  > bonus){
+        
+       if (Math.round(score/50) > bonus && bonus < 5){
+           System.out.println("Score is "+score+" Bonus Life is "+bonus);
            bonus=Math.round(score/50);
        }
-       else bonus=1;
-       
+       else if (bonus > 5){
+           //nothing to do
+       }
+       else 
+       {
+           bonus=1;
+       }
+       this.tscore=score;
        notifyObserver();
        return score;
    } 
     
    public void notifyObserver(){
     eggObserver[0].update(getWorld(),bonus);
-    eggObserver[1].update(getWorld(),Math.round(this.score));
+    eggObserver[1].update(getWorld(),Math.round(this.tscore));
    }
     
 }

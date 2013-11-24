@@ -18,8 +18,8 @@ public class Life extends EggObserver
     
     
     private void addLife(World farm){
-        System.out.println("Adding life --> " + getWorld().getObjects(Player.class).size()+1);
-        switch(getWorld().getObjects(Player.class).size()){
+        System.out.println("Adding life --> " +farm.getObjects(Player.class).size());
+        switch(farm.getObjects(Player.class).size()){
             case 0:
             Player player0 = new Player();
             farm.addObject(player0, 369, 525);
@@ -58,7 +58,6 @@ public class Life extends EggObserver
     
     
     private void removeLife(World farm){
-        
         System.out.println("Lost white eggs -> " + farm.getObjects(Player.class).size());
         farm.removeObject((Actor)farm.getObjects(Player.class).get(0));
         farm.repaint();

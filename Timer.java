@@ -15,7 +15,7 @@ public class Timer extends Actor
     public void timer30(long ticker){
         
         
-        if ((System.currentTimeMillis()-ticker)<30000){
+        if ((System.currentTimeMillis()-ticker)<100000){
          //   getImage().drawImage((new GreenfootImage(((System.currentTimeMillis()-ticker)/1000)+" sec",30,Color.WHITE,Color.BLACK)),0,0);
             getImage().drawImage((new GreenfootImage(((System.currentTimeMillis()-ticker)/1000)+" sec",30,Color.WHITE,Color.BLACK)),0,0);
              

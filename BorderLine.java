@@ -24,32 +24,31 @@ public class BorderLine extends StatusSubject
      
     public float keepStatus(float score)
     {
+        float myscore=score; 
         Actor egg =  getOneIntersectingObject(Egg.class);
         if (egg != null && egg instanceof Egg){
                 World world;
                 world = getWorld();
-                
                 if (egg instanceof WhiteEgg){
-                    
                     killLife();
                 }
-                else if (egg instanceof GoldenEgg){
-                      
+                else if (egg instanceof GoldenEgg){  
                 }    
                 world.removeObject(egg);
         }
-        return score;
+        return myscore;
     }
    
     public void killLife() { 
        
         if (getWorld().getObjects(Player.class).size() > 0) 
         {
+          //System.out.println("No of Lifes --> "+getWorld().getObjects(Player.class).size());
            notifyObserver();
         } 
         else{
             Greenfoot.setWorld(new GameOver()); 
-            System.out.println("Game Over");
+           // System.out.println("No of Lifes @ GameOver --> "+getWorld().getObjects(Player.class).size());
         }
             
     }
