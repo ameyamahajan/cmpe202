@@ -17,7 +17,7 @@ public class Hen extends Actor
     Egg egg ;
     final int[] HenLocation = {115,332,565,792,1006};
     int scroller;
-    float score = 0.0f;
+    int score = 0;
     private long ticker=System.currentTimeMillis();
     
     public Hen()
@@ -57,12 +57,14 @@ public class Hen extends Actor
             case 6: case 7: case 8: 
             tempEgg=new SpoiledEgg();break;
             case 9:
-            tempEgg=new GoldenEgg();break;
+            tempEgg=new WhiteEgg();
+            tempEgg.addChild(new GoldenEgg());
+            break;
             default: 
             tempEgg=new WhiteEgg();break;
         }
-        world.addObject(tempEgg,henSelect,150);
-        return tempEgg;
+        world.addObject(tempEgg.getChild(),henSelect,150);
+        return tempEgg.getChild();
     }
     
     public void moveEgg(int xloc, int yloc){

@@ -12,11 +12,11 @@ public class Bucket extends StatusSubject
      * Act - do whatever the Bucket wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private float eggCount;
+    private int eggCount;
     boolean isDown = false;
-    private static Bucket bucket;
     private int bonus=0;
-    private static float tscore=0.0f;
+    private static Bucket bucket;
+    private static int tscore=0;
     Bucket()
     {
         GreenfootImage image = getImage() ;
@@ -65,48 +65,49 @@ public class Bucket extends StatusSubject
         }
     }
        
-   public float keepStatus(float score)
+   public int keepStatus(int  score)
    {
        Actor egg;
+       int scoreTemp=0;
         egg = getOneIntersectingObject(Actor.class);
         if (egg !=  null && egg instanceof Egg )
         {
            World world;
            world = getWorld();
            if (egg instanceof WhiteEgg){
-                score=10.0f + score;
+                scoreTemp=((WhiteEgg)egg).getScore(score);
                 System.out.println("White egg in Bucket --> "+ score);
            }
            else if(egg instanceof GoldenEgg) {
-                score=50.0f + score;
+               scoreTemp=((GoldenEgg)egg).getScore(score);
                 System.out.println("Golden egg in Bucket --> "+ score);
            }
            else if(egg instanceof SpoiledEgg){
-               score=-5.0f+ score;
+               scoreTemp=((SpoiledEgg)egg).getScore(score);
                System.out.println(" Spoiled egg in Bucket --> "+ score);
            }
            world.removeObject(egg);
-       }  
-        
-       if (Math.round(score/50) > bonus && bonus < 5){
-           System.out.println("Score is "+score+" Bonus Life is "+bonus);
-           bonus=Math.round(score/50);
        }
-       else if (bonus > 5){
+        
+       if ((scoreTemp/50)>bonus && bonus<5){
+           System.out.println("Score is "+scoreTemp+" Bonus Life is "+bonus);
+           bonus=scoreTemp/50;
+       }
+       else if (bonus>5){
            //nothing to do
        }
        else 
        {
            bonus=1;
        }
-       this.tscore=score;
+       this.tscore=scoreTemp;
        notifyObserver();
-       return score;
+       return scoreTemp;
    } 
     
    public void notifyObserver(){
     eggObserver[0].update(getWorld(),bonus);
-    eggObserver[1].update(getWorld(),Math.round(this.tscore));
+    eggObserver[1].update(getWorld(),this.tscore);
    }
     
 }

@@ -1,4 +1,12 @@
 #BlueJ class context
 comment0.params=
 comment0.target=WhiteEgg()
-numComments=1
+comment1.params=score
+comment1.target=int\ getScore(int)
+comment2.params=
+comment2.target=Egg\ getChild()
+comment3.params=egg
+comment3.target=void\ addChild(Egg)
+comment4.params=
+comment4.target=void\ removeChild()
+numComments=5

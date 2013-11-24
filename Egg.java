@@ -1,25 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
-/**
- * Write a description of class Egg here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Egg extends Actor
+
+public abstract class Egg extends Actor
 {
-    /**
-     * Act - do whatever the Egg wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-        breakMsg();
-    }    
+   
+
+    
     public void breakMsg()
     {
-        
         Egg egg = (Egg)getOneObjectAtOffset(0,0,Egg.class);
          if (egg !=  null  )
          {
@@ -30,4 +18,9 @@ public class Egg extends Actor
             world.removeObject(egg);
         }
     }
+    
+    public abstract Egg getChild();
+    public abstract void addChild(Egg egg);
+    public abstract void removeChild();
+    public abstract int getScore(int score);
 }

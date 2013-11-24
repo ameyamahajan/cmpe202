@@ -11,8 +11,6 @@ public class Life extends EggObserver
             removeLife(farm);
         else 
             ;
-     
-        
     }  
     
     

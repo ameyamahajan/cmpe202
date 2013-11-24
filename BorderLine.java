@@ -4,8 +4,7 @@ import java.awt.Color;
 
 public class BorderLine extends StatusSubject
 {
-  
-    private float eggCount;
+    private int eggCount;
     private static BorderLine border;
     
     private BorderLine(){
@@ -21,20 +20,19 @@ public class BorderLine extends StatusSubject
         return border;
     }
      
-     
-    public float keepStatus(float score)
+    public int keepStatus(int score)
     {
-        float myscore=score; 
+        int myscore=score; 
         Actor egg =  getOneIntersectingObject(Egg.class);
         if (egg != null && egg instanceof Egg){
-                World world;
-                world = getWorld();
-                if (egg instanceof WhiteEgg){
-                    killLife();
-                }
-                else if (egg instanceof GoldenEgg){  
-                }    
-                world.removeObject(egg);
+            World world;
+            world = getWorld();
+            if ( ((Egg)egg).getChild() instanceof WhiteEgg){ 
+                killLife();
+            }
+            else if (((Egg)egg).getChild() instanceof GoldenEgg){  
+            }    
+            world.removeObject(egg);
         }
         return myscore;
     }
